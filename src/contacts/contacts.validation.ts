@@ -6,4 +6,5 @@ export const contactsValidationSchema = z.object({
   phoneNumber: z.string(),
   address: z.string(),
   profilePicture: z.string(),
+  isDeleted: z.boolean().optional(),
 });

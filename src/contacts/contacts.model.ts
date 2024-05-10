@@ -22,6 +22,10 @@ const contactsSchema = new Schema<TContacts>(
       type: String,
       required: [true, "Profile Picture is required"],
     },
+    isDeleted: {
+      type: Boolean,
+      default: false,
+    },
   },
   { timestamps: true }
 );

@@ -4,4 +4,5 @@ export type TContacts = {
   phoneNumber: string;
   address: string;
   profilePicture: string;
+  isDeleted?: boolean;
 };
