@@ -13,8 +13,19 @@ const createContact = async (req: Request, res: Response) => {
   });
 };
 
+const getAllContacts = async (req: Request, res: Response) => {
+    const result = await Contact.find({ isDeleted: { $ne: true } }).sort({
+      createdAt: -1,
+    });
+    res.status(201).json({
+      success: true,
+      message: "All Contacts retrive successfully!",
+      data: result,
+    });
+  };
 
 
 export const contactController = {
   createContact,
+  getAllContacts
 };
