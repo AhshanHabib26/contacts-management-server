@@ -43,9 +43,24 @@ const getSingleContact = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
+const updateContact = async (req: Request, res: Response) => {
+  const validatedData = contactsValidationSchema.parse(req.body);
+  const { id } = req.params;
+  const result = await Contact.findByIdAndUpdate(id, validatedData, {
+    runValidators: true,
+    new: true,
+  });
+
+  res.status(200).json({
+    success: true,
+    message: "Contact updated successfully!",
+    data: result,
+  });
+};
 
 export const contactController = {
   createContact,
   getAllContacts,
-  getSingleContact
+  getSingleContact,
+  updateContact,
 };
