@@ -4,6 +4,7 @@ const router = express.Router();
 
 router.post("/", contactController.createContact);
 router.get("/", contactController.getAllContacts)
+router.get("/:id", contactController.getSingleContact)
 
 
 export default router;

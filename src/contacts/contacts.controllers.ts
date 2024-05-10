@@ -25,9 +25,27 @@ const getAllContacts = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
+const getSingleContact = catchAsync(async (req: Request, res: Response) => {
+  const { id } = req.params;
+  const result = await Contact.findOne({ _id: id, isDeleted: { $ne: true } });
+
+  if (!result) {
+    return res.status(404).json({
+      success: false,
+      message: "Contact not found!",
+    });
+  }
+
+  res.status(200).json({
+    success: true,
+    message: "Single Contact retrived successfully!",
+    data: result,
+  });
+});
 
 
 export const contactController = {
   createContact,
   getAllContacts,
+  getSingleContact
 };

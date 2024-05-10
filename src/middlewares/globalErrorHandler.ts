@@ -5,7 +5,6 @@ import { TErrorSources } from "../interface/TError";
 import handleValidationError from "../errors/handleValidationError";
 
 const globalErrorHandler: ErrorRequestHandler = (err, req, res, next) => {
-  console.log(err.statusCode);
   let statusCode = 500;
   let message = "Something went wrong!";
   let errorSources: TErrorSources = [
