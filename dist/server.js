@@ -21,7 +21,7 @@ function main() {
         try {
             yield mongoose_1.default.connect(process.env.DB_URL);
             app_1.default.listen(process.env.PORT, () => {
-                console.log(`ConatctManagement app is listening on port ${process.env.PORT}`);
+                console.log(`Conatcts Management app is listening on port ${process.env.PORT}`);
             });
         }
         catch (err) {
