@@ -63,6 +63,15 @@ const updateContact = (req, res) => __awaiter(void 0, void 0, void 0, function* 
         data: result,
     });
 });
+const favoriteContact = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { id } = req.params;
+    const result = yield contacts_model_1.Contact.findByIdAndUpdate({ _id: id }, { isFavorite: true }, { new: true });
+    res.status(200).json({
+        success: true,
+        message: "Contact favorite successfully!",
+        data: null,
+    });
+});
 const deleteContact = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { id } = req.params;
     const result = yield contacts_model_1.Contact.findByIdAndUpdate({ _id: id }, { isDeleted: true }, { new: true });
@@ -84,4 +93,5 @@ exports.contactController = {
     getSingleContact,
     updateContact,
     deleteContact,
+    favoriteContact,
 };

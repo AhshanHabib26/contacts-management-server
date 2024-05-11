@@ -6,6 +6,7 @@ router.post("/", contactController.createContact);
 router.get("/", contactController.getAllContacts)
 router.get("/:id", contactController.getSingleContact)
 router.put("/:id", contactController.updateContact)
+router.patch("/:id", contactController.favoriteContact)
 router.delete("/:id", contactController.deleteContact)
 
 

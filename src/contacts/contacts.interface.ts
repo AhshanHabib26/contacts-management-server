@@ -5,4 +5,5 @@ export type TContacts = {
   address: string;
   profilePicture: string;
   isDeleted?: boolean;
+  isFavorite: boolean;
 };

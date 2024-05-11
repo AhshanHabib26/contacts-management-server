@@ -58,6 +58,21 @@ const updateContact = async (req: Request, res: Response) => {
   });
 };
 
+const favoriteContact = async (req: Request, res: Response) => {
+  const { id } = req.params;
+  const result = await Contact.findByIdAndUpdate(
+    { _id: id },
+    { isFavorite: true },
+    { new: true }
+  );
+
+  res.status(200).json({
+    success: true,
+    message: "Contact favorite successfully!",
+    data: null,
+  });
+};
+
 const deleteContact = async (req: Request, res: Response) => {
   const { id } = req.params;
   const result = await Contact.findByIdAndUpdate(
@@ -86,4 +101,5 @@ export const contactController = {
   getSingleContact,
   updateContact,
   deleteContact,
+  favoriteContact,
 };

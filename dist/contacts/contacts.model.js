@@ -26,5 +26,9 @@ const contactsSchema = new mongoose_1.Schema({
         type: Boolean,
         default: false,
     },
+    isFavorite: {
+        type: Boolean,
+        default: false,
+    },
 }, { timestamps: true });
 exports.Contact = (0, mongoose_1.model)("Contacts", contactsSchema);

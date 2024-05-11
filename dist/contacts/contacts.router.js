@@ -10,5 +10,6 @@ router.post("/", contacts_controllers_1.contactController.createContact);
 router.get("/", contacts_controllers_1.contactController.getAllContacts);
 router.get("/:id", contacts_controllers_1.contactController.getSingleContact);
 router.put("/:id", contacts_controllers_1.contactController.updateContact);
+router.patch("/:id", contacts_controllers_1.contactController.favoriteContact);
 router.delete("/:id", contacts_controllers_1.contactController.deleteContact);
 exports.default = router;

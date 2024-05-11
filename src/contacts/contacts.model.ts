@@ -26,6 +26,10 @@ const contactsSchema = new Schema<TContacts>(
       type: Boolean,
       default: false,
     },
+    isFavorite: {
+      type: Boolean,
+      default: false,
+    },
   },
   { timestamps: true }
 );
